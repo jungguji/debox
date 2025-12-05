@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>서울시 제설함 위치 찾기</title>
+    <!-- 카카오맵 JavaScript SDK -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e96f49d02fdbc1652b02b10bd667a212&libraries=services,clusterer"></script>
+  </head>
+  <body>
+    <!-- 검색 컨트롤 패널 -->
+    <div id="search-panel">
+      <h1>서울시 제설함 위치 찾기</h1>
+      <div class="search-container">
+        <input
+          type="text"
+          id="keyword"
+          placeholder="지역명 또는 주소를 입력하세요 (예: 강남역, 마포구)"
+        />
+        <button id="searchBtn">검색</button>
+      </div>
+      <div id="info-text">
+        현재 화면에 표시된 제설함: <span id="count">0</span>개
+      </div>
+    </div>
+
+    <!-- 지도 컨테이너 -->
+    <div id="map"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
