@@ -12,6 +12,13 @@
     <!-- 검색 컨트롤 패널 -->
     <div id="search-panel">
       <h1>서울시 제설함 위치 찾기</h1>
+
+      <!-- 탭 컨테이너 -->
+      <div class="tab-container">
+        <button class="tab-button active" data-type="snow">제설함</button>
+        <button class="tab-button" data-type="calcium">염화칼슘보관함</button>
+      </div>
+
       <div class="search-container">
         <input
           type="text"
@@ -21,7 +28,7 @@
         <button id="searchBtn">검색</button>
       </div>
       <div id="info-text">
-        현재 화면에 표시된 제설함: <span id="count">0</span>개
+        현재 화면에 표시된 <span id="data-type-label">제설함</span>: <span id="count">0</span>개
       </div>
     </div>
 
