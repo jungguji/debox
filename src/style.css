@@ -38,11 +38,61 @@ body {
   max-width: 600px;
 }
 
-#search-panel h1 {
+/* 패널 헤더 스타일 */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.panel-header h1 {
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin: 0;
   color: #333;
+}
+
+/* 토글 버튼 스타일 */
+.toggle-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 18px;
+  color: #666;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.toggle-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.toggle-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* 접혔을 때 아이콘 회전 */
+#search-panel.collapsed .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+/* 접을 수 있는 콘텐츠 영역 */
+.collapsible-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 1;
+}
+
+/* 접혔을 때 */
+.collapsible-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
 }
 
 /* 검색 입력 영역 */
@@ -142,8 +192,13 @@ body {
     padding: 15px;
   }
 
-  #search-panel h1 {
+  .panel-header h1 {
     font-size: 16px;
+  }
+
+  .toggle-button {
+    font-size: 16px;
+    padding: 6px;
   }
 
   .search-container {
@@ -157,5 +212,49 @@ body {
   .tab-button {
     padding: 8px 12px;
     font-size: 13px;
+  }
+}
+
+/* 데이터 출처 및 문의처 안내 스타일 */
+#disclaimer {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.disclaimer-text {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.disclaimer-text small {
+  font-size: 11px;
+  color: #777;
+}
+
+.disclaimer-text a {
+  color: #4A90E2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.disclaimer-text a:hover {
+  text-decoration: underline;
+}
+
+.disclaimer-text strong {
+  color: #555;
+  font-weight: 600;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  #disclaimer {
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+
+  .disclaimer-text small {
+    font-size: 10px;
   }
 }

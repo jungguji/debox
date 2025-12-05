@@ -68,6 +68,32 @@ function getCurrentLabel(): string {
   return currentDataType === 'snow' ? '제설함' : '염화칼슘보관함';
 }
 
+// 패널 토글 기능
+function initPanelToggle() {
+  const toggleBtn = document.getElementById('toggle-btn');
+  const collapsibleContent = document.getElementById('collapsible-content');
+  const searchPanel = document.getElementById('search-panel');
+
+  if (!toggleBtn || !collapsibleContent) return;
+
+  // 초기 상태: 펼쳐져 있음
+  let isCollapsed = false;
+
+  toggleBtn.addEventListener('click', () => {
+    isCollapsed = !isCollapsed;
+
+    if (isCollapsed) {
+      // 접기
+      collapsibleContent.classList.add('collapsed');
+      searchPanel?.classList.add('collapsed');
+    } else {
+      // 펼치기
+      collapsibleContent.classList.remove('collapsed');
+      searchPanel?.classList.remove('collapsed');
+    }
+  });
+}
+
 // 2. 지도 중심에서 가까운 마커만 렌더링
 function renderMarkers(map: any, data: SnowBox[]) {
   // 1. 기존 마커 제거
@@ -281,6 +307,9 @@ async function initMap() {
       searchHandler();
     }
   });
+
+  // 패널 토글 기능 초기화
+  initPanelToggle();
 }
 
 // 5. 카카오 맵 SDK 로드 후 실행

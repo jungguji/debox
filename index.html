@@ -11,24 +11,51 @@
   <body>
     <!-- 검색 컨트롤 패널 -->
     <div id="search-panel">
-      <h1>서울시 제설함 위치 찾기</h1>
+      <!-- 항상 보이는 헤더 영역 -->
+      <div class="panel-header">
+        <h1>서울시 제설함 위치 찾기</h1>
+        <button id="toggle-btn" class="toggle-button" aria-label="패널 접기/펼치기">
+          <span class="toggle-icon">▼</span>
+        </button>
+      </div>
 
-      <!-- 탭 컨테이너 -->
+      <!-- 탭은 항상 보이기 -->
       <div class="tab-container">
         <button class="tab-button active" data-type="snow">제설함</button>
         <button class="tab-button" data-type="calcium">염화칼슘보관함</button>
       </div>
 
-      <div class="search-container">
-        <input
-          type="text"
-          id="keyword"
-          placeholder="지역명 또는 주소를 입력하세요 (예: 강남역, 마포구)"
-        />
-        <button id="searchBtn">검색</button>
-      </div>
-      <div id="info-text">
-        현재 화면에 표시된 <span id="data-type-label">제설함</span>: <span id="count">0</span>개
+      <!-- 접을 수 있는 콘텐츠 영역 -->
+      <div id="collapsible-content" class="collapsible-content">
+        <div class="search-container">
+          <input
+            type="text"
+            id="keyword"
+            placeholder="지역명 또는 주소를 입력하세요 (예: 강남역, 마포구)"
+          />
+          <button id="searchBtn">검색</button>
+        </div>
+        <div id="info-text">
+          현재 화면에 표시된 <span id="data-type-label">제설함</span>: <span id="count">0</span>개
+        </div>
+
+        <!-- 데이터 출처 및 문의처 안내 -->
+        <div id="disclaimer">
+          <p class="disclaimer-text">
+            <small>
+              📊 데이터 출처:
+              <a href="https://data.seoul.go.kr/" target="_blank" rel="noopener noreferrer">
+                서울시 열린데이터 광장
+              </a>
+            </small>
+          </p>
+          <p class="disclaimer-text">
+            <small>
+              ⚠️ 실제 데이터와 차이가 있을 수 있습니다.
+              정확한 정보는 관할 <strong>주민센터</strong> 또는 <strong>구청</strong>으로 문의해 주세요.
+            </small>
+          </p>
+        </div>
       </div>
     </div>
 
