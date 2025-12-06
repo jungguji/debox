@@ -28,7 +28,7 @@ let currentDataType: DataType = 'snow'; // 현재 선택된 데이터 타입
 // 1. 데이터 로드
 async function loadData(filename: string): Promise<SnowBox[]> {
   try {
-    const res = await fetch(`/${filename}`);
+    const res = await fetch(`${import.meta.env.BASE_URL}${filename}`);
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
